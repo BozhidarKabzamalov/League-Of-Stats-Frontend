@@ -1,0 +1,62 @@
+<template>
+    <div class="nav">
+        <div class='wrapper'>
+            <ul class='nav-ul'>
+                <router-link to="/" tag='li'>Home</router-link>
+                <router-link to="/summoner/The Onyx King" tag='li'>The Onyx King</router-link>
+                <router-link to="/champions" tag='li'>Champions</router-link>
+                <li>
+                    <form v-on:submit.prevent="searchSummoner">
+                        <input class='search-bar' v-model="summoner" type="text" placeholder="Search Summoner" autocomplete="off" spellcheck="false">
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+</template>
+
+<script>
+import axios from 'axios'
+import router from '../router'
+
+export default {
+    data(){
+        return {
+            summoner: ''
+        }
+    },
+    methods: {
+        searchSummoner(){
+            router.push('/summoner/' + this.summoner)
+        }
+    },
+    mounted(){
+
+    }
+}
+</script>
+
+<style lang="scss" scoped>
+    .nav {
+        background: linear-gradient(-45deg, #57cfb0, #2ab5d3);
+    }
+    .nav-ul {
+        display: flex;
+    }
+    .nav li {
+        padding: 16px 30px 16px 0;
+        color: #ffffff;
+        cursor: pointer;
+    }
+    .search-bar {
+        border: 1px solid #ffffff;
+        padding: 5px;
+        background-color: #ffffff;
+        color: #606060;
+        outline: none;
+    }
+    ::placeholder {
+        color: #757575;
+        opacity: 1;
+    }
+</style>
