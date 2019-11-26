@@ -3,8 +3,7 @@
         <div class='wrapper'>
             <ul class='nav-ul'>
                 <router-link to="/" tag='li'>Home</router-link>
-                <router-link to="/summoner/The Onyx King" tag='li'>The Onyx King</router-link>
-                <router-link to="/champions" tag='li'>Champions</router-link>
+                <!--<router-link to="/summoner/The Onyx King" tag='li'>The Onyx King</router-link>-->
                 <li>
                     <form v-on:submit.prevent="searchSummoner">
                         <input class='search-bar' v-model="summoner" type="text" placeholder="Search Summoner" autocomplete="off" spellcheck="false">
@@ -16,7 +15,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 import router from '../router'
 
 export default {
@@ -38,7 +36,8 @@ export default {
 
 <style lang="scss" scoped>
     .nav {
-        background: linear-gradient(-45deg, #57cfb0, #2ab5d3);
+        /*background: linear-gradient(-45deg, #57cfb0, #2ab5d3);*/
+        background-color: rgba(0, 0, 0, 0.6);
     }
     .nav-ul {
         display: flex;

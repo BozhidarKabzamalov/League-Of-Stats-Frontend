@@ -77,21 +77,21 @@ export default new Vuex.Store({
         },
         findChampion: (state) => (id) => {
             let championId = id.toString();
-            let champion = Object.entries(state.champions).find(([key,value]) => value.key === championId);
+            let champion = Object.values(state.champions).find(value => value.key === championId);
 
-            return champion[1]
+            return champion
         },
         findSummonerSpell: (state) => (id) => {
             let summonerSpellId = id.toString();
-            let summonerSpell = Object.entries(state.summonerSpells).find(([key,value]) => value.key === summonerSpellId);
+            let summonerSpell = Object.values(state.summonerSpells).find(value => value.key === summonerSpellId);
 
-            return summonerSpell[1]
+            return summonerSpell
         },
         findSummonerRune: (state) => (id) => {
             let flattedRunes = state.summonerRunes.reduce((acc, rune) =>
                          acc.concat([rune], rune.slots.reduce((a, r) => a.concat(r.runes), [])), []);
             let rune = flattedRunes.find(rune => rune.id == id);
-            
+
             return rune
         }
     }

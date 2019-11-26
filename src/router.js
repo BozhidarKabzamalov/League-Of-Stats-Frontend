@@ -2,7 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
 import Summoner from './views/Summoner.vue'
-import Match from './views/Match.vue'
+import SpecificMatch from './views/SpecificMatch.vue'
+import Matchlist from './views/Matchlist.vue'
 import axios from 'axios'
 
 axios.defaults.baseURL = process.env.VUE_APP_SERVER_API
@@ -21,9 +22,9 @@ export default new Router({
     {
         path: '/summoner/:summonerName',
         component: Summoner,
-        props: true,
         children: [
-            { path: '/summoner/:summonerName/match/:matchId', name: 'match', component: Match }
+            { path: '', component: Matchlist, name: 'matchlist' },
+            { path: 'match/:matchId', component: SpecificMatch, name: 'specificMatch' }
         ]
     }
     ]
