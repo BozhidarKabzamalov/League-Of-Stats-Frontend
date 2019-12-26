@@ -1,6 +1,6 @@
 <template>
     <div class='wrapper'>
-        <div class='home flex justify-center'>
+        <div class='flex justify-center' v-bind:style="{ minHeight: minHeight + 'px'}">
             <form v-on:submit.prevent="searchSummoner">
                 <input class='search-bar' v-model="summoner" type="text" placeholder="Search Summoner (EUW Only), e.g, Wolf" autocomplete="off" spellcheck="false">
             </form>
@@ -23,16 +23,15 @@ export default {
             router.push('/summoner/' + this.summoner)
         }
     },
-    mounted(){
-
+    computed: {
+        minHeight(){
+            return window.innerHeight - 60
+        }
     }
 }
 </script>
 
 <style lang="scss" scoped>
-    .home {
-        height: 500px;
-    }
     .search-bar {
         border: 1px solid #ffffff;
         padding: 15px;
@@ -40,6 +39,7 @@ export default {
         color: #606060;
         outline: none;
         width: 500px;
+        margin-bottom: 60px;
     }
     ::placeholder {
         color: #757575;

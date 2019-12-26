@@ -1,6 +1,6 @@
 <template>
-    <div v-if='summonerInfo' class='wrapper'>
-        <div class='flex direction-column'>
+    <div class='wrapper' v-bind:style="{ minHeight: minHeight + 'px'}">
+        <div v-if='summonerInfo' class='flex direction-column'>
 
             <div class='summoner flex'>
                 <div class="icon-container flex">
@@ -67,6 +67,11 @@ export default {
         $route(to, from){
             this.summoner = this.$route.params.summonerName
             this.user('get')
+        }
+    },
+    computed: {
+        minHeight(){
+            return window.innerHeight - 60
         }
     },
     mounted(){

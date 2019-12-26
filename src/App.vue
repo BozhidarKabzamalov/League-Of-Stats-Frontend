@@ -2,21 +2,25 @@
     <div>
         <navigation/>
         <router-view></router-view>
+        <Footer></Footer>
     </div>
 </template>
 
 <script>
     import Navigation from './components/Navigation.vue';
+    import Footer from './components/Footer.vue';
 
     export default {
         components: {
-            Navigation
+            Navigation,
+            Footer
         },
         mounted(){
             this.$store.dispatch('getVersion')
             this.$store.dispatch('getChampions')
             this.$store.dispatch('getSummonerSpells')
             this.$store.dispatch('getSummonerRunes')
+            this.$store.dispatch('getQueues')
         }
     }
 </script>

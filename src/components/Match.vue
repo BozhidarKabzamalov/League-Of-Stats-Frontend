@@ -7,7 +7,7 @@
                 <p>{{ matchLength(this.match.details.gameDuration) }}</p>
             </div>
             <div class='justify-center match-queue'>
-                <p>Ranked Solo</p>
+                <p class='queue-name'>{{ this.$store.getters.findQueue(this.match.queue).name }}</p>
             </div>
             <div class='champion-icon justify-center'>
                 <img :src="'http://ddragon.leagueoflegends.com/cdn/' + $store.getters.version + '/img/champion/' + $store.getters.findChampion(this.match.mainParticipant.championId).image.full" alt="">
@@ -173,6 +173,9 @@ export default {
     }
     .champion-name, .match-queue, .KDA, .cs, .elapsed-time {
         flex-basis: 100px;
+    }
+    .queue-name {
+        text-align: center;
     }
     .elapsed-time {
         flex-basis: 125px;

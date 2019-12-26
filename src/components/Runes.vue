@@ -39,6 +39,7 @@ export default {
         background-color: #f2f2f2;
         border: 1px solid #cdd2d2;
         padding: 20px;
+        margin-bottom: 10px;
     }
     .perk {
         margin-right: 20px;

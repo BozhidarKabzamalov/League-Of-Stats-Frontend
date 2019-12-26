@@ -9,7 +9,8 @@ export default new Vuex.Store({
         version: null,
         champions: null,
         summonerRunes: null,
-        summonerSpells: null
+        summonerSpells: null,
+        queues: null,
     },
     mutations: {
         version(state, data){
@@ -23,6 +24,9 @@ export default new Vuex.Store({
         },
         summonerSpells(state, data){
             state.summonerSpells = data.summonerSpells
+        },
+        queues(state, data){
+            state.queues = data.queues
         }
     },
     actions: {
@@ -69,6 +73,17 @@ export default new Vuex.Store({
             .catch(function (error) {
                 console.log(error);
             })
+        },
+        getQueues({commit, state}){
+            axios.get("https://raw.githubusercontent.com/CommunityDragon/Data/master/queues.json")
+            .then((response) => {
+                commit('queues', {
+                    queues: response.data
+                })
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
         }
     },
     getters: {
@@ -93,6 +108,13 @@ export default new Vuex.Store({
             let rune = flattedRunes.find(rune => rune.id == id);
 
             return rune
+        },
+        findQueue: (state) => (id) => {
+            for (var i = 0; i < state.queues.length; i++) {
+                if (state.queues[i].id === id) {
+                    return state.queues[i]
+                }
+            }
         }
     }
 })
