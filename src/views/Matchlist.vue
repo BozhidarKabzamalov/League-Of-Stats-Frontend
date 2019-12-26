@@ -1,7 +1,7 @@
 <template>
     <div class='wrapper'>
         <div class="flex">
-            <div class="queues">
+            <div v-if='summonerLeague.length > 0' class="queues">
                 <Queue v-for='league in summonerLeague' :league='league'></Queue>
             </div>
             <div class="column">

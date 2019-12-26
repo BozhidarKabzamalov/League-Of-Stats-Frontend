@@ -7,8 +7,8 @@
 </template>
 
 <script>
-    import Navigation from './components/Navigation.vue';
-    import Footer from './components/Footer.vue';
+    import Navigation from './components/Navigation.vue'
+    import Footer from './components/Footer.vue'
 
     export default {
         components: {
@@ -16,10 +16,11 @@
             Footer
         },
         mounted(){
-            this.$store.dispatch('getVersion')
-            this.$store.dispatch('getChampions')
-            this.$store.dispatch('getSummonerSpells')
-            this.$store.dispatch('getSummonerRunes')
+            this.$store.dispatch('getVersion').then(() => {
+                this.$store.dispatch('getChampions')
+                this.$store.dispatch('getSummonerSpells')
+                this.$store.dispatch('getSummonerRunes')
+            })
             this.$store.dispatch('getQueues')
         }
     }
