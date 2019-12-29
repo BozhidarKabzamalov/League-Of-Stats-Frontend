@@ -1,5 +1,5 @@
 <template lang="html">
-    <div class='match' v-bind:class="gameIsWon(this.match) ? 'win' : 'loss'">
+    <div class='match' v-if="$store.state.champions" v-bind:class="gameIsWon(this.match) ? 'win' : 'loss'">
         <div class='flex participant'>
             <div class='justify-center game-duration direction-column'>
                 <p v-if='gameIsWon(this.match)'>Victory</p>
@@ -7,7 +7,7 @@
                 <p>{{ matchLength(this.match.details.gameDuration) }}</p>
             </div>
             <div class='justify-center match-queue'>
-                <p class='queue-name'>{{ this.$store.getters.findQueue(this.match.queue).name }}</p>
+                <p class='queue-name'>{{ this.$store.getters.findQueue(this.match.details.queueId).name }}</p>
             </div>
             <div class='champion-icon justify-center'>
                 <img :src="'http://ddragon.leagueoflegends.com/cdn/' + $store.getters.version + '/img/champion/' + $store.getters.findChampion(this.match.mainParticipant.championId).image.full" alt="">

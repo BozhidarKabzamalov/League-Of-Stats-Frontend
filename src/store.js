@@ -31,7 +31,7 @@ export default new Vuex.Store({
     },
     actions: {
         getVersion({commit}){
-            return axios.get("http://ddragon.leagueoflegends.com/api/versions.json")
+            axios.get("http://ddragon.leagueoflegends.com/api/versions.json")
             .then((response) => {
                 commit('version', {
                     version: response.data[0]
@@ -42,7 +42,7 @@ export default new Vuex.Store({
             })
         },
         getChampions({commit, state}){
-            return axios.get("https://ddragon.leagueoflegends.com/cdn/" + state.version + "/data/en_US/champion.json")
+            axios.get("https://ddragon.leagueoflegends.com/cdn/9.24.1/data/en_US/champion.json")
             .then((response) => {
                 commit('champions', {
                     champions: response.data.data
@@ -53,7 +53,7 @@ export default new Vuex.Store({
             })
         },
         getSummonerSpells({commit, state}){
-            return axios.get("http://ddragon.leagueoflegends.com/cdn/" + state.version + "/data/en_US/summoner.json")
+            axios.get("http://ddragon.leagueoflegends.com/cdn/9.24.1/data/en_US/summoner.json")
             .then((response) => {
                 commit('summonerSpells', {
                     summonerSpells: response.data.data
@@ -64,7 +64,7 @@ export default new Vuex.Store({
             })
         },
         getSummonerRunes({commit, state}){
-            return axios.get("https://ddragon.leagueoflegends.com/cdn/" + state.version + "/data/en_US/runesReforged.json")
+            axios.get("https://ddragon.leagueoflegends.com/cdn/9.24.1/data/en_US/runesReforged.json")
             .then((response) => {
                 commit('summonerRunes', {
                     summonerRunes: response.data

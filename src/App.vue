@@ -16,11 +16,10 @@
             Footer
         },
         mounted(){
-            this.$store.dispatch('getVersion').then(() => {
-                this.$store.dispatch('getChampions')
-                this.$store.dispatch('getSummonerSpells')
-                this.$store.dispatch('getSummonerRunes')
-            })
+            this.$store.dispatch('getVersion')
+            this.$store.dispatch('getChampions')
+            this.$store.dispatch('getSummonerSpells')
+            this.$store.dispatch('getSummonerRunes')
             this.$store.dispatch('getQueues')
         }
     }

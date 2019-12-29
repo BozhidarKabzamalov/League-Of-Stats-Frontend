@@ -71,7 +71,6 @@ export default {
                     participant.identity = this.match.details.participantIdentities.find((value) => value.participantId === participant.participantId)
                 }
 
-                console.log(response.data)
             })
             .catch(function (error) {
                 console.log(error);
