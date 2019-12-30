@@ -20,7 +20,7 @@ export default new Router({
         component: Home
     },
     {
-        path: '/summoner/:summonerName',
+        path: '/summoner/:region/:summonerName',
         component: Summoner,
         children: [
             { path: '', component: Matchlist, name: 'matchlist' },

@@ -1,7 +1,7 @@
 <template lang="html">
     <div class="queue-type flex direction-row">
         <div class='ranked-emblem'>
-            <img class='responsive-image' :src="'../emblems/' + league.tier + '.png'" alt="">
+            <img class='responsive-image' :src="'../../emblems/' + league.tier + '.png'" alt="">
         </div>
         <div>
             <p>{{ queueType(league.queueType) }}</p>

@@ -6,6 +6,19 @@
                 <li>
                     <form v-on:submit.prevent="searchSummoner">
                         <input class='search-bar' v-model="summoner" type="text" placeholder="Search Summoner" autocomplete="off" spellcheck="false">
+                        <select v-model='region'>
+                            <option value="EUW1">Europe West</option>
+                            <option value="NA1">North America</option>
+                            <option value="EUN1">Europe Nordic & East</option>
+                            <option value="KR">Korea</option>
+                            <option value="JP1">Japan</option>
+                            <option value="BR1">Brazil</option>
+                            <option value="RU">Russia</option>
+                            <option value="OC1">Oceania</option>
+                            <option value="TR1">Turkey</option>
+                            <option value="LA1">Latin America North</option>
+                            <option value="LA2">Latin America South</option>
+                        </select>
                     </form>
                 </li>
             </ul>
@@ -19,13 +32,13 @@ import router from '../router'
 export default {
     data(){
         return {
-            summoner: ''
+            summoner: '',
+            region: 'EUW1'
         }
     },
     methods: {
         searchSummoner(){
-            router.push('/summoner/' + this.summoner)
-            this.summoner = ''
+            router.push('/summoner/' + this.region + '/' + this.summoner)
         }
     }
 }

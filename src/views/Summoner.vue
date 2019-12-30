@@ -34,6 +34,7 @@ export default {
     data(){
         return {
             summoner: this.$route.params.summonerName,
+            region: this.$route.params.region,
             summonerInfo: '',
             summonerLeague: '',
             summonerMatches: '',
@@ -44,7 +45,7 @@ export default {
         user(action){
             this.loading = true;
             let trimmedSummoner = this.summoner.replace(/\s+/g, '');
-            axios.get('http://lolapi.kabzamalov.com/api/' + action + 'Summoner/' + trimmedSummoner)
+            axios.get('http://lolapi.kabzamalov.com/api/' + action + 'Summoner/' + this.region + '/' + trimmedSummoner)
             .then((response) => {
                 this.summonerInfo = response.data.summonerInfo
                 this.summonerLeague = response.data.summonerLeague
