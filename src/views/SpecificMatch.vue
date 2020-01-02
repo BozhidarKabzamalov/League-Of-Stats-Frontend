@@ -54,12 +54,13 @@ export default {
         return {
             match: null,
             summonerName: this.$route.params.summonerName,
-            matchId: this.$route.params.matchId
+            matchId: this.$route.params.matchId,
+            region: this.$route.params.region
         }
     },
     methods: {
         getMatch(){
-            axios.get("/getMatch/" + this.matchId)
+            axios.get("/getMatch/" + this.region + '/' + this.matchId)
             .then((response) => {
 
                 this.match = {

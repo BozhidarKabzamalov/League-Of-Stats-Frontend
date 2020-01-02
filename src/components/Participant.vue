@@ -60,14 +60,14 @@ export default {
     props: ['participant', 'match'],
     data(){
         return {
-
+            region: this.$route.params.region
         }
     },
     methods: {
         redirectToProfile(participant){
             let summonerName = participant.identity.player.summonerName
             //this.$router.push({ name: 'matchlist', params: { summonerName }})
-            this.$router.push({ path: `/summoner/${summonerName}` })
+            this.$router.push({ path: `/summoner/${this.region}/${summonerName}` })
         },
         calculateKDA,
         calculateMinionsPerMinute
