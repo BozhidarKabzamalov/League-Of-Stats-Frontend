@@ -67,6 +67,7 @@ export default {
     watch:{
         $route(to, from){
             this.summoner = this.$route.params.summonerName
+            this.region = this.$route.params.region
             this.user('get')
         }
     },
