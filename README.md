@@ -15,13 +15,13 @@ The application consists of a Vue.js front-end and PHP (Laravel) back-end which 
 * Modularity
 * Easier deployment
 
-**Front-end responsibilities:
+**Front-end responsibilities:**
 
 * Make requests to the back-end for information about League Of Legends users and matches
 * Display all the information in an understandable manner
 * Handle routing
 
-**Back-end responsibilities:
+**Back-end responsibilities:**
 
 * Make requests to Riot Games's API and then return the responses to the front-end
 * Store the API responses inside the database
